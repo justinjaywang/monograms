@@ -1,0 +1,17 @@
+{
+  "name": "monograms",
+  "version": "1.0.0",
+  "description": "graphical exploration of the initials, JJW",
+  "scripts": {
+    "start": "http-server build -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinjaywang/monograms.git"
+  },
+  "author": "Justin Wang",
+  "homepage": "https://github.com/justinjaywang/monograms",
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
