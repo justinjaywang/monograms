@@ -1,17 +1,17 @@
 {
   "name": "monograms",
-  "version": "1.0.0",
-  "description": "graphical exploration of the initials, JJW",
-  "scripts": {
-    "start": "http-server build -p 8000"
-  },
+  "version": "2.8.3",
+  "description": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/justinjaywang/monograms.git"
   },
+  "private": false,
   "author": "Justin Wang",
-  "homepage": "https://github.com/justinjaywang/monograms",
-  "devDependencies": {
-    "gulp": "^3.8.10"
+  "dependencies": {
+    "hexo-console-optimize": "0.0.5",
+    "hexo-renderer-ejs": "*",
+    "hexo-renderer-less": "^0.1.2",
+    "hexo-renderer-marked": "*"
   }
 }
