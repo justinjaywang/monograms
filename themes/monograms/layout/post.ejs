@@ -1,1 +1,8 @@
-<%- partial('_partials/article', {post: page, index: false}) %>
+<main class="page-main">
+  <!-- post -->
+  <%- partial('_partials/article', {post: page, index: false}) %>
+  <!-- index -->
+  <% site.posts.each(function(post){ %>
+    <%- partial('_partials/article-preview', {post: post, index: true}) %>
+  <% }) %>
+</main>
