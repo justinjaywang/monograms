@@ -14,7 +14,7 @@ language: en-US
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://monograms.justinjaywang.com
 root: /
-permalink: :year/:title/
+permalink: :title/
 tag_dir: tagged
 archive_dir: archive
 category_dir: category
