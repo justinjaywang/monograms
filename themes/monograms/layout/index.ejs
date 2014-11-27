@@ -1,5 +1,7 @@
-<main class="page-main">
-<% page.posts.each(function(post){ %>
-  <%- partial('_partials/article-preview', {post: post, index: true}) %>
-<% }) %>
+<main class="page-main container">
+  <section class="index">
+    <% page.posts.each(function(post){ %>
+      <%- partial('_partials/article-preview', {post: post, index: true}) %>
+    <% }) %>
+  </section>
 </main>
