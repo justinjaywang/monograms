@@ -1,12 +1,5 @@
 <main class="page-main container">
-  <!-- post -->
   <section class="permalink">
     <%- partial('_partials/article', {post: page, index: false}) %>
-  </section>
-  <!-- index -->
-  <section class="index">
-    <% site.posts.each(function(post){ %>
-      <%- partial('_partials/article-preview', {post: post, index: true}) %>
-    <% }) %>
   </section>
 </main>

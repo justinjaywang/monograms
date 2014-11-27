@@ -23,18 +23,20 @@ body {
   .font-smoothing(antialiased);
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  margin-top: @margin-top--body;
+  margin-bottom: @margin-bottom--body;
 }
 .page-header {
   background: @color-temp;
 }
 .page-main {
-  margin-bottom: @margin-bottom--page-main;
+  // margin-bottom: @margin-bottom--page-main;
 }
 .container {
   width: 100%;
   .margin-center();
   background: @color-temp;
-  max-width: @max-width--container--narrow;
+  max-width: @max-width--container;
   padding-left: @container-gutter;
   padding-right: @container-gutter;
 }
@@ -107,6 +109,11 @@ p {
 //   box-shadow: @box-shadow--blockquote;
 //   font-size: @font-size--blockquote;
 // }
+
+// header
+.page-header > * {
+  display: inline;
+}
 
 // posts
 .post img {
