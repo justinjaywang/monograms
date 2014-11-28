@@ -1,18 +1,18 @@
 <main class="page-main container">
-  <section class="index">
+  <% var last; %>
+  <% page.posts.each(function(post, i){ %>
 
-    <% var last; %>
-    <% page.posts.each(function(post, i){ %>
+    <% var year = post.date.year(); %>
+    <% if (last != year) { %>
+      <% if (last != null){ %>
+        </section>
+      <% } %>
+      <% last = year; %>
+      <section class="year">
+        <h4 class="year-label"><%= year %></h4>
+    <% } %>
 
-      <% var year = post.date.year(); %>
-        <% if (last != year) { %>
-          <% last = year; %>
-          <h4 class="year"><%= year %></h4>
-        <% } %>
+    <%- partial('_partials/article-preview', {post: post, index: true, archive: true}) %>
 
-        <%- partial('_partials/article-preview', {post: post, index: true, archive: true}) %>
-
-      <% }); %>
-
-  </section>
+  <% }); %>
 </main>
