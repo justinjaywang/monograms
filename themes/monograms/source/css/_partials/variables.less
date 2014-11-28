@@ -1,14 +1,16 @@
 // responsiveness
 // : variables
 @width-screen-sm-min: 480px;
-@width-screen-md-min: 680px;
-@width-screen-lg-min: 1104px;
+@width-screen-md-min: 768px;
+@width-screen-lg-min: 1000px;
+@width-screen-xs-max: (@width-screen-sm-min - 1);
 @width-screen-sm-max: (@width-screen-md-min - 1);
 @width-screen-md-max: (@width-screen-lg-min - 1);
 
 // colors
 // : variables
 @color-gray-darkest:  rgba(0,0,0,0.8);
+@color-blackish:      rgb(34,34,34);
 @color-gray-darker:   rgba(0,0,0,0.6);
 @color-gray-dark:     rgba(0,0,0,0.6);
 @color-gray:          rgba(0,0,0,0.44);
@@ -16,14 +18,16 @@
 @color-gray-lighter:  rgba(0,0,0,0.15);
 @color-gray-lightest: rgba(0,0,0,0.04);
 @color-white:         rgb(255,255,255);
-@color-temp: rgba(255,0,0,0.1); // TEMP
+@color-whitish:       rgb(248,248,248);
 
 // : applications
 @background-color--body: @color-white;
-@color--body:            @color-gray-darkest;
+@color--body:            @color-blackish;
 @color--a:               inherit;
-@color--title:           @color-gray-darkest;
+@color--title:           @color-blackish;
 @color--description:     @color-gray-light;
+@color--year-label:      @color-gray-light;
+@fill--svg:              @color-gray;
 
 // sizing
 @size-tera:         3;
@@ -126,18 +130,20 @@
 @letter-spacing--body:     @letter-spacing-base;
 
 // layout
+@max-width--container: @width-screen-lg-min;
 @container-gutter:     20px;
-@max-width--container: @width-screen-md-min;
+@post--preview-gutter: @container-gutter;
 
 // responsiveness
 // : applications
 
 // spacing
-@margin-top--body:           @size-rem-tera;
-@margin-bottom--body:        (@size-rem-tera * 2);
+@margin-top--body:           @size-rem-base;
+@margin-bottom--body:        (@size-rem-base * 4);
 @margin-bottom--page-header: @size-rem-base;
 @margin-right--title:        @size-rem-pico;
 @margin-top--year:           @size-rem-giga;
 @margin-bottom--year-label:  @size-rem-base;
 @margin-top--permalink:      @margin-top--year;
 @margin-bottom--post:        @size-rem-base;
+@margin-left--post--preview: @margin-bottom--post;

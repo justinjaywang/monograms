@@ -6,7 +6,7 @@
       <% if (last != null){ %></section><% } %>
       <% last = year; %>
       <section class="year">
-        <h4 class="year-label"><%= year %></h4>
+        <h2 class="year-label"><%= year %></h2>
     <% } %>
     <%- partial('_partials/article-preview', {post: post, index: true, archive: true}) %><% }); %>
 </main>
