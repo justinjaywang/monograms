@@ -27,11 +27,15 @@ body {
   margin-top: @margin-top--body;
   margin-bottom: @margin-bottom--body;
 }
-.page-header {
-  // margin-bottom: @margin-bottom--page-header;
+@media (max-width: @width-screen-xs-max) {
+  html {
+    font-size: @font-size--html-xs;
+  }
 }
-.page-main {
-  // margin-bottom: @margin-bottom--page-main;
+@media (min-width: @width-screen-sm-min) and (max-width: @width-screen-sm-max) {
+  html {
+    font-size: @font-size--html-sm;
+  }
 }
 .container {
   width: 100%;
@@ -79,12 +83,11 @@ p {
 }
 
 // header
-.page-header > * {
-  display: inline;
-}
+// .page-header > * {
+//   display: inline;
+// }
 .title {
   color: @color--title;
-  margin-right: @margin-right--title;
 }
 .description {
   color: @color--description;
