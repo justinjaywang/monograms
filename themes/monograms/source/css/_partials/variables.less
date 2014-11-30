@@ -9,18 +9,18 @@
 
 // colors
 // : variables
-@color-blackish:      rgb(34,34,34);
-@color-gray:          rgb(204,204,204);
-@color-white:         rgb(255,255,255);
-@color-whiteish:      rgb(246,246,246);
+@color-dark-gray: rgb(51,51,51);
+@color-gray:      rgb(102,102,102);
+@color-white:     rgb(255,255,255);
+@color-whiteish:  rgb(246,246,246);
 
 // : applications
 @background-color--body: @color-whiteish;
-@color--body:            @color-blackish;
+@color--body:            @color-gray;
 @color--a:               inherit;
-@color--title:           @color-blackish;
-@color--author:          @color-gray;
-@color--year-label:      @color-gray;
+@color--title:           inherit;
+@color--author:          inherit;
+@color--year-label:      inherit;
 
 // sizing
 @size-tera:         3;
@@ -52,9 +52,6 @@
 
 // typography
 // : font-size-variables
-@font-size-px-base:      17.5px;
-@font-size-px-small:     17.5px;
-@font-size-px-smaller:   15.5px;
 @font-size-em-tera:      unit(@size-tera, em);
 @font-size-em-giga:      unit(@size-giga, em);
 @font-size-em-mega:      unit(@size-mega, em);
@@ -76,30 +73,26 @@
 @font-size-rem-smaller:  unit(@size-smaller, rem);
 @font-size-rem-smallest: unit(@size-smallest, rem);
 // : font-size-applications
-@font-size--html:                  @font-size-px-base;
-@font-size--html-sm:               @font-size-px-small;
-@font-size--html-xs:               @font-size-px-smaller;
-@font-size--body:                  @font-size-em-base;
-@font-size--h1:                    @font-size-em-base;
-@font-size--h2:                    @font-size-em-base;
-@font-size--h3:                    @font-size-em-base;
-@font-size--p:                     @font-size-em-base;
-@font-size--year-label:            @font-size-rem-base;
-@font-size--post--preview-content: @font-size-rem-base;
+@font-size--html:                  24px;
+@font-size--html-md:               12px;
+@font-size--html-sm:               12px;
+@font-size--html-xs:               12px;
+@font-size--body:                  16px;
+@font-size--year-label:            @font-size--body;
+@font-size--post--preview-content: @font-size--body;
 // : font-family-variables
-@font-family-sans-serif: "Franklin Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:      Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:  Consolas, Monaco, "Andale Mono", monospace;
 // : font-family-applications
-@font-family--body:     @font-family-serif;
-@font-family--headings: @font-family-sans-serif;
+@font-family--body:     @font-family-sans-serif;
 // : font-weight-variables
 @font-weight-bold:      700;
 @font-weight-normal:    400;
 @font-weight-semilight: 300;
 // : font-weight-applications
-@font-weight--body:     @font-weight-normal;
-@font-weight--headings: @font-weight-bold;
+@font-weight--body:  @font-weight-normal;
+@font-weight--title: @font-weight-bold;
 // : line-height-variables
 @line-height-tightest: 1.1;
 @line-height-tighter:  1.2;
@@ -109,9 +102,6 @@
 @line-height-looser:   1.6;
 // : line-height-applications
 @line-height--body: @line-height-base;
-@line-height--h1:   @line-height-tight;
-@line-height--h2:   @line-height-tight;
-@line-height--h3:   @line-height-tight;
 // : letter-spacing-variables
 @letter-spacing-tighter: -0.04em;
 @letter-spacing-tight:   -0.02em;
@@ -119,8 +109,7 @@
 @letter-spacing-loose:   0.02em;
 @letter-spacing-looser:  0.04em;
 // : letter-spacing-applications
-@letter-spacing--headings: @letter-spacing-base;
-@letter-spacing--body:     @letter-spacing-base;
+@letter-spacing--body: @letter-spacing-base;
 
 // layout
 @max-width--container: @width-screen-lg-min;
@@ -131,10 +120,11 @@
 // : applications
 
 // spacing
-@margin-top--body:           @size-rem-base;
-@margin-bottom--body:        (@size-rem-base * 4);
-@margin-bottom--page-header: @size-rem-base;
-@margin-top--year:           unit((@size-base * @line-height--body), rem);
+@margin-top--page-header:    (@size-rem-largest + @size-rem-base);
+@margin-right--title:        (@size-rem-pico / 2);
+@margin-top--year-first:     @size-rem-largest;
+@margin-top--year:           0;
+@margin-bottom--year-last:   (@size-rem-largest + @size-rem-giga);
 @margin-bottom--year-label:  @size-rem-base;
 @margin-top--permalink:      @margin-top--year;
 @margin-bottom--post:        @post--preview-gutter;

@@ -9,6 +9,11 @@
 html {
   font-size: @font-size--html;
 }
+* {
+  -webkit-transition: all 0.05s ease-in;
+  -moz-transition: all 0.05s ease-in;
+  transition: all 0.05s ease-in;
+}
 body {
   height: 100%;
   width: 100%;
@@ -24,17 +29,20 @@ body {
   .font-smoothing(antialiased);
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  margin-top: @margin-top--body;
-  margin-bottom: @margin-bottom--body;
 }
-@media (max-width: @width-screen-xs-max) {
+@media (min-width: @width-screen-md-min) and (max-width: @width-screen-md-max) {
   html {
-    font-size: @font-size--html-xs;
+    font-size: @font-size--html-md;
   }
 }
 @media (min-width: @width-screen-sm-min) and (max-width: @width-screen-sm-max) {
   html {
     font-size: @font-size--html-sm;
+  }
+}
+@media (max-width: @width-screen-xs-max) {
+  html {
+    font-size: @font-size--html-xs;
   }
 }
 .container {
@@ -55,53 +63,42 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: @font-family--headings;
-  font-weight: @font-weight--headings;
-  letter-spacing: @letter-spacing--headings;
-}
-h1 {
-  font-size: @font-size--h1;
-  line-height: @line-height--h1;
-}
-h2 {
-  font-size: @font-size--h2;
-  line-height: @line-height--h2;
-}
-h3 {
-  font-size: @font-size--h3;
-  line-height: @line-height--h3;
-}
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  line-height: inherit;
-}
+h6,
 p {
-  font-size: @font-size--p;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 
-// header
-// .page-header > * {
-//   display: inline;
-// }
+// content
+.page-header {
+  margin-top: @margin-top--page-header;
+}
+.page-header > * {
+  display: inline;
+}
 .title {
   color: @color--title;
+  font-weight: @font-weight--title;
+  margin-right: @margin-right--title;
 }
 .author {
   color: @color--author;
 }
-
-// posts
+.year:first-of-type {
+  margin-top: @margin-top--year-first;
+}
+.year:last-of-type {
+  margin-bottom: @margin-bottom--year-last;
+}
 .year {
   margin-top: @margin-top--year;
   font-size: 0;
 }
 .year-label {
+  font-size: @font-size--year-label;
   margin-bottom: @margin-bottom--year-label;
   color: @color--year-label;
-  font-size: @font-size--year-label;
 }
 .permalink {
   margin-top: @margin-top--permalink;
@@ -118,11 +115,11 @@ p {
 .post--preview {
   display: inline-block;
 }
-@media (max-width: @width-screen-xs-max) {
+@media (min-width: @width-screen-md-min) {
   .post--preview {
-    .post--preview-width(2);
+    .post--preview-width(4);
     margin-left: @margin-left--post--preview;
-    &:nth-of-type(2n+1) {
+    &:nth-of-type(4n+1) {
       margin-left: 0;
     }
   }
@@ -136,11 +133,11 @@ p {
     }
   }
 }
-@media (min-width: @width-screen-md-min) {
+@media (max-width: @width-screen-xs-max) {
   .post--preview {
-    .post--preview-width(4);
+    .post--preview-width(2);
     margin-left: @margin-left--post--preview;
-    &:nth-of-type(4n+1) {
+    &:nth-of-type(2n+1) {
       margin-left: 0;
     }
   }
