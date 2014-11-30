@@ -1,6 +1,7 @@
 // base
 * {
   .box-sizing(border-box);
+  .transition(all @transition-duration ease-in);
 }
 *:before,
 *:after {
@@ -8,11 +9,6 @@
 }
 html {
   font-size: @font-size--html;
-}
-* {
-  -webkit-transition: all 0.05s ease-in;
-  -moz-transition: all 0.05s ease-in;
-  transition: all 0.05s ease-in;
 }
 body {
   height: 100%;
