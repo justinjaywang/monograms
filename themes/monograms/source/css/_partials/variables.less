@@ -73,7 +73,7 @@
 @font-size-rem-smaller:  unit(@size-smaller, rem);
 @font-size-rem-smallest: unit(@size-smallest, rem);
 // : font-size-applications
-@font-size--html:                  24px;
+@font-size--html:                  20px;
 @font-size--html-md:               12px;
 @font-size--html-sm:               12px;
 @font-size--html-xs:               12px;
@@ -122,9 +122,9 @@
 // spacing
 @margin-top--page-header:    (@size-rem-largest + @size-rem-base);
 @margin-right--title:        (@size-rem-pico / 2);
-@margin-top--year-first:     @size-rem-largest;
+@margin-top--year-first:     (@size-rem-largest + @size-rem-pico);
 @margin-top--year:           0;
-@margin-bottom--year-last:   (@size-rem-largest + @size-rem-giga);
+@margin-bottom--year-last:   (@size-rem-largest + @size-rem-tera);
 @margin-bottom--year-label:  @size-rem-base;
 @margin-top--permalink:      @margin-top--year;
 @margin-bottom--post:        @post--preview-gutter;
