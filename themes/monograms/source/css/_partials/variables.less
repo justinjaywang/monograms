@@ -10,7 +10,7 @@
 // colors
 // : variables
 @color-dark-gray: rgb(51,51,51);
-@color-gray:      rgb(102,102,102);
+@color-gray:      rgb(153,153,153);
 @color-white:     rgb(255,255,255);
 @color-whiteish:  rgb(246,246,246);
 
@@ -19,8 +19,8 @@
 @color--body:            @color-dark-gray;
 @color--a:               inherit;
 @color--title:           inherit;
-@color--author:          inherit;
-@color--year-label:      inherit;
+@color--author:          @color-gray;
+@color--year-label:      @color-gray;
 
 // sizing
 @size-tera:         3;
@@ -77,11 +77,11 @@
 @font-size--html-md:               12px;
 @font-size--html-sm:               12px;
 @font-size--html-xs:               12px;
-@font-size--body:                  16px;
+@font-size--body:                  17px;
 @font-size--year-label:            @font-size--body;
 @font-size--post--preview-content: @font-size--body;
 // : font-family-variables
-@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif: "Franklin Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:      Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:  Consolas, Monaco, "Andale Mono", monospace;
 // : font-family-applications
@@ -91,8 +91,10 @@
 @font-weight-normal:    400;
 @font-weight-semilight: 300;
 // : font-weight-applications
-@font-weight--body:  @font-weight-normal;
-@font-weight--title: @font-weight-bold;
+@font-weight--body:       @font-weight-bold;
+@font-weight--title:      inherit;
+@font-weight--author:     inherit;
+@font-weight--year-label: inherit;
 // : line-height-variables
 @line-height-tightest: 1.1;
 @line-height-tighter:  1.2;
