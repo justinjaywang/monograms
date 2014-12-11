@@ -9,14 +9,13 @@
 
 // colors
 // : variables
-@color-dark-gray: rgb(51,51,51);
-@color-gray:      rgb(153,153,153);
-@color-white:     rgb(255,255,255);
-@color-whiteish:  rgb(246,246,246);
+@color-gray-dark:    rgba(0,0,0,0.8);
+@color-gray:         rgba(0,0,0,0.4);
+@color-white:        rgb(255,255,255);
 
 // : applications
 @background-color--body: @color-white;
-@color--body:            @color-dark-gray;
+@color--body:            @color-gray-dark;
 @color--a:               inherit;
 @color--title:           inherit;
 @color--author:          @color-gray;
@@ -118,9 +117,6 @@
 @container-gutter:     20px;
 @post--preview-gutter: 30px;
 
-// responsiveness
-// : applications
-
 // spacing
 @margin-top--page-header:    (@size-rem-largest + @size-rem-pico);
 @margin-right--title:        @size-rem-pico;
@@ -134,3 +130,7 @@
 
 // transitions
 @transition-duration: 0.06s;
+
+// opacity
+@opacity--image: (alpha(@color--body) + 0.05);
+
