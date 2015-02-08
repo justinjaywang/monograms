@@ -10,6 +10,7 @@
   "author": "Justin Wang",
   "dependencies": {
     "hexo-console-optimize": "0.0.5",
+    "hexo-console-rename": "^0.1.4",
     "hexo-renderer-ejs": "*",
     "hexo-renderer-less": "^0.1.2",
     "hexo-renderer-marked": "*"
