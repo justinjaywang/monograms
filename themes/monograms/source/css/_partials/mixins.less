@@ -38,13 +38,13 @@
 //   }
 // }
 
-// // opacity
-// .opacity(@opacity) {
-//   opacity: @opacity;
-//   // IE8 filter
-//   @opacity-ie: (@opacity * 100);
-//   filter: ~"alpha(opacity=@{opacity-ie})";
-// }
+// opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
 
 // // requires inline-block or block for proper styling
 // .text-overflow() {
