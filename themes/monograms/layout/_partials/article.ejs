@@ -1,3 +1,3 @@
-<article class="post" data-post-id="<%= post._id %>">
-  <img src="<%= theme.image_path + date(post.date, 'YYYY') + '--' + post.title + theme.image_type %>">
-</article>
+<figure class="post" data-post-id="<%= post._id %>" style="background-image: url('<%= theme.image_path + date(post.date, 'YYYY') + '--' + post.title + theme.image_type %>')">
+  <a class="post-link" href="<%= config.root %>"></a>
+</figure>

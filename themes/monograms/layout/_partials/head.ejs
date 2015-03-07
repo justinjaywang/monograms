@@ -2,17 +2,8 @@
   <meta charset="utf-8">
   <%
   var title = page.title;
-  if (is_archive()){
-    title = 'Archive';
-    if (is_month()){
-      title += ' ' + page.year + '/' + page.month;
-    } else if (is_year()){
-      title += ' ' + page.year;
-    }
-  } else if (is_category()){
-    title = page.category;
-  } else if (is_tag()){
-    title = 'Tagged: ' + page.tag;
+  if (is_post()) {
+    title = date(page.date, 'YYYY') + ' #' + page.title;
   }
   %>
   <title><% if (title){ %><%= title %> — <% } %><%= config.title %></title>

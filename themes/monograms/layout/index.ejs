@@ -1,4 +1,5 @@
-<main class="page-main container">
+<%- partial('_partials/header', null, {cache: !config.relative_link}) %>
+<main class="container">
   <% var last; %>
   <% page.posts.each(function(post, i){ %>
     <% var year = post.date.year(); %>
@@ -8,6 +9,6 @@
       <section class="year">
         <h2 class="year-label"><%= year %></h2>
     <% } %>
-    <%- partial('_partials/article-preview', {post: post}) %>
+    <%- partial('_partials/postThumbnail', {post: post}) %>
   <% }); %>
 </main>
