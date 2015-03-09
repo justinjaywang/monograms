@@ -6,8 +6,8 @@
     postLink = $('#postLink'),
     postThumbnailLink = $('.postThumbnail-link');
 
-  var arriveDelay = 50,
-    departDelay = 150;
+  var arriveDelay = 0,
+    departDelay = 0;
 
   // functions
   var navigate = function(href) {
