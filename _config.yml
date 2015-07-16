@@ -8,22 +8,26 @@ subtitle:
 description:
 author: Justin Wang
 email:
-language: en-US
+language:
+- en
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://monograms.justinjaywang.com
 root: /
 permalink: :year/:title/
-tag_dir: tagged
-archive_dir: archive
-category_dir: category
-code_dir: downloads/code
 permalink_defaults:
 
 # Directory
 source_dir: source
 public_dir: public
+tag_dir: tag
+archive_dir: archive
+category_dir: category
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
 # Writing
 new_post_name: :year--:title.md # File name of new posts
@@ -34,6 +38,7 @@ filename_case: 1
 render_drafts: false
 post_asset_folder: false
 relative_link: false
+future: true
 highlight:
   enable: true
   line_number: true
@@ -43,23 +48,6 @@ highlight:
 default_category: uncategorized
 category_map:
 tag_map:
-
-# Archives
-## 2: Enable pagination
-## 1: Disable pagination
-## 0: Fully Disable
-archive: 0
-category: 0
-tag: 0
-
-# Server
-## Hexo uses Connect as a server
-## You can customize the logger format as defined in
-## http://www.senchalabs.org/connect/logger.html
-port: 7000
-server_ip: localhost
-logger: false
-logger_format: dev
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -80,12 +68,11 @@ disqus_shortname:
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
 theme: monograms
-exclude_generator:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repo: https://github.com/justinjaywang/monograms.git
   branch: gh-pages
   message: updated site {{ now('YYYY-MM-DD HH:mm:ss') }}
