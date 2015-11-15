@@ -3,7 +3,7 @@
   <%
   var title = page.title;
   if (is_post()) {
-    title = date(page.date, 'YYYY') + ' #' + page.title;
+    title = page.title + ' (' + date(page.date, 'YYYY') + ')';
   }
   %>
   <title><% if (title){ %><%= title %> — <% } %><%= config.title %></title>
