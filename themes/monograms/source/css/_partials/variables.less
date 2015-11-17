@@ -1,8 +1,8 @@
 // responsiveness
 // : variables
-@width-screen-sm-min: 480px;
+@width-screen-sm-min: 440px;
 @width-screen-md-min: 720px;
-@width-screen-lg-min: 960px;
+@width-screen-lg-min: 1000px;
 @width-screen-xs-max: (@width-screen-sm-min - 1);
 @width-screen-sm-max: (@width-screen-md-min - 1);
 @width-screen-md-max: (@width-screen-lg-min - 1);
@@ -74,7 +74,6 @@
 // : font-size-applications
 @font-size--html:                  17px;
 @font-size--body:                  1em;
-@font-size--year-label:            @font-size--html;
 // : font-family-variables
 @font-family-sans-serif: "Franklin Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:      Georgia, "Times New Roman", Times, serif;
@@ -109,9 +108,9 @@
 @letter-spacing--body: @letter-spacing-base;
 
 // layout
-@width--container:     87.5%;
+@width--container:     92.5%;
 @max-width--container: @width-screen-lg-min;
-@postThumbnail-gutter: 6.25%;
+@postThumbnail-gutter: 6%;
 
 // spacing
 @margin-top--page-header:       3rem;
@@ -120,8 +119,6 @@
 @margin-top--year:              3rem;
 @margin-bottom--year-last:      6rem;
 @margin-bottom--year-label:     1.5rem;
-@margin-left--postThumbnail:    @postThumbnail-gutter;
-@padding-bottom--postThumbnail: @margin-left--postThumbnail;
 
 // transitions
 @transition-duration: 50ms;
