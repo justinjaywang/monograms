@@ -9,17 +9,22 @@
 
 // colors
 // : variables
-@color-gray-dark:    rgba(0,0,0,0.833333);
-@color-gray:         rgba(0,0,0,0.333333);
-@color-white:        rgb(255,255,255);
+@color-pos:    #000;
+@color-neg:    #fff;
+@opacity-base: 11/12;
+@opacity-mult: 4/11; // 11/12 * 4/11 = 4/12
 
 // : applications
-@background-color--body: @color-white;
-@color--body:            @color-gray-dark;
-@color--a:               inherit;
-@color--title:           inherit;
-@color--author:          @color-gray;
-@color--year-label:      @color-gray;
+@color--a: inherit;
+
+// transitions
+@transition-duration: 50ms;
+
+// opacity
+@opacity-duration:    100ms;
+@opacity--body:       @opacity-base;
+@opacity--author:     @opacity-mult;
+@opacity--year-label: @opacity-mult;
 
 // sizing
 @size-tera:         3;
@@ -118,10 +123,4 @@
 @padding-bottom--year:      6rem;
 @margin-bottom--year-label: 1.5rem;
 
-// transitions
-@transition-duration: 50ms;
-
-// opacity
-@opacity--image:   (alpha(@color--body) + 0.04);
-@opacity-duration: 100ms;
 

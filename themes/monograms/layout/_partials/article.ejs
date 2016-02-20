@@ -1,3 +1,6 @@
-<figure class="post" data-post-id="<%= post._id %>" style="background-image: url('<%= theme.image_path + date(post.date, 'YYYY') + '--' + post.title + theme.image_type %>')">
+<figure class="post post--p" data-post-id="<%= post._id %>" style="background-image: url('<%= theme.image_path + date(post.date, 'YYYY') + '--' + post.title + theme.image_type %>')">
+  <a class="post-link" id="postLink" href="<%= config.root %>"></a>
+</figure>
+<figure class="post post--n" data-post-id="<%= post._id %>" style="background-image: url('<%= theme.image_path + date(post.date, 'YYYY') + '--' + post.title + 'n' + theme.image_type %>')">
   <a class="post-link" id="postLink" href="<%= config.root %>"></a>
 </figure>

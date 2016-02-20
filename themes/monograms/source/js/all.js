@@ -4,7 +4,9 @@
   // variables
   var body = $('body'),
     postLink = $('#postLink'),
-    postThumbnailLink = $('.postThumbnail-link');
+    postThumbnailLink = $('.postThumbnail-link'),
+    title = $('.title'),
+    invertedColorClass = 'n';
 
   var arriveDelay = 0,
     departDelay = 0;
@@ -21,6 +23,22 @@
     setTimeout(function() {
       history.back();
     }, departDelay);
+  };
+  var setCookie = function(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + '; ' + expires;
+  };
+  var getCookie = function(cname) {
+    var name = cname + '=';
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1);
+      if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return '';
   };
 
   // postThumbnail
@@ -44,12 +62,23 @@
     return false;
   });
 
-  // image preloading and transition classes
+  // transition class
   body.addClass('isTransitioning');
   $(window).on('load pageshow', function() {
     setTimeout(function() {
       body.removeClass('isTransitioning');
     }, arriveDelay);
+  });
+
+  // get cookie and set colors
+  if (getCookie(invertedColorClass) == 'true') {
+    body.addClass(invertedColorClass);
+  }
+
+  // set cookie on title click and invert colors
+  title.click(function(e) {
+    setCookie(invertedColorClass, !body.hasClass(invertedColorClass), 365);
+    body.toggleClass(invertedColorClass);
   });
 
 }(jQuery);

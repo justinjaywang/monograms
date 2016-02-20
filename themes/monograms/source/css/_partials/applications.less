@@ -1,7 +1,6 @@
 // base
 * {
   .box-sizing(border-box);
-  .transition(all @transition-duration ease-in);
 }
 *:before,
 *:after {
@@ -16,8 +15,7 @@ html {
 }
 body {
   position: relative;
-  color: @color--body;
-  background-color: @background-color--body;
+  .opacity(@opacity--body);
   font-family: @font-family--body;
   font-size: @font-size--body;
   font-weight: @font-weight--body;
@@ -27,6 +25,13 @@ body {
   .font-smoothing(antialiased);
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  color: @color-pos;
+  background-color: @color-neg;
+  &.n {
+    color: @color-neg;
+    background-color: @color-pos;
+  }
+  .transition(all @transition-duration ease);
 }
 .container {
   .margin-center();
@@ -60,12 +65,12 @@ p {
   display: inline;
 }
 .title {
-  color: @color--title;
   font-weight: @font-weight--title;
   margin-right: @margin-right--title;
+  cursor: pointer;
 }
 .author {
-  color: @color--author;
+  .opacity(@opacity--author);
   font-weight: @font-weight--author;
 }
 .year {
@@ -74,7 +79,7 @@ p {
 .year-label {
   font-weight: @font-weight--year-label;
   margin-bottom: @margin-bottom--year-label;
-  color: @color--year-label;
+  .opacity(@opacity--year-label);
 }
 .postThumbnails {
   .clearfix();
@@ -87,7 +92,7 @@ p {
 }
 .postThumbnail img {
   .img-responsive();
-  .opacity(@opacity--image);
+  // .opacity(@opacity--image);
 }
 .postThumbnail-link:hover {
   cursor: zoom-in;
@@ -97,7 +102,6 @@ p {
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  .opacity(@opacity--image);
 }
 .post-link {
   .blockify();
@@ -112,6 +116,22 @@ p {
 }
 .isTransitioning .post {
   .opacity(0);
+}
+
+// display
+figure[class$="--p"] {
+  display: block;
+}
+figure[class$="--n"] {
+  display: none;
+}
+.n {
+  figure[class$="--n"] {
+    display: block;
+  }
+  figure[class$="--p"] {
+    display: none;
+  }
 }
 
 // responsive grid
