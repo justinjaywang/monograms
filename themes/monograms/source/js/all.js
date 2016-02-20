@@ -10,7 +10,7 @@
 
   var body = $('body'),
     postThumbnailLink = $('.postThumbnail-link'),
-    title = $('.title'),
+    invert = $('.invert'),
     invertedColorClass = 'is-inverted',
     zoomedClass = 'is-zoomable',
     zoomableClass = 'zoomable',
@@ -25,8 +25,8 @@
     if (getCookie(invertedColorClass) == 'true') {
       body.addClass(invertedColorClass);
     }
-    // set cookie on title click and invert colors
-    title.click(function(e) {
+    // set cookie on click and invert colors
+    invert.click(function(e) {
       setCookie(invertedColorClass, !body.hasClass(invertedColorClass), 365);
       body.toggleClass(invertedColorClass);
     });
@@ -108,7 +108,7 @@
       tY = posYZoomed - posYOrig,
       tXScaled = tX / scale,
       tYScaled = tY / scale;
-      
+
     $(element).css('transform', 'scale(' + scale + ') translate(' + tXScaled + 'px,' + tYScaled + 'px)');
   };
 

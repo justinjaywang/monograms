@@ -56,21 +56,21 @@ p {
   padding-top: @padding-top--page-header;
   padding-bottom: @padding-bottom--page-header;
 }
-.page-header > * {
-  display: inline;
+.page-footer {
+  padding-bottom: @padding-top--page-header;
+  padding-top: @padding-bottom--page-header;
 }
-.title {
-  font-weight: @font-weight--title;
-  cursor: pointer;
-}
-.author {
-  font-weight: @font-weight--author;
+.page-header > *,
+.page-footer > * {
+  display: inline-block;
 }
 .year {
   padding-bottom: @padding-bottom--year;
 }
+.year:last-of-type {
+  padding-bottom: @padding-bottom--year--last;
+}
 .year-label {
-  font-weight: @font-weight--year-label;
   margin-bottom: @margin-bottom--year-label;
 }
 .postThumbnails {
@@ -113,6 +113,12 @@ figure[class$="--p"] {
 figure[class$="--n"] {
   display: none;
 }
+span[class$="--p"] {
+  display: inline-block;
+}
+span[class$="--n"] {
+  display: none;
+}
 .is-inverted {
   figure[class$="--n"] {
     display: block;
@@ -120,9 +126,18 @@ figure[class$="--n"] {
   figure[class$="--p"] {
     display: none;
   }
+  span[class$="--n"] {
+    display: inline-block;
+  }
+  span[class$="--p"] {
+    display: none;
+  }
   .zoomable:before {
     background-color: @color-pos;
   }
+}
+.invert {
+  cursor: pointer;
 }
 
 // zoom
