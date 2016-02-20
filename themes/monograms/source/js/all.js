@@ -63,16 +63,41 @@
       }
       return false;
     });
+    $(window).bind('resize',
+      function() {
+        if (!body.hasClass(zoomedClass)) return;
+        unzoom($('.' + zoomableZoomedClass));
+      }
+    );
   };
 
   var zoom = function(element) {
-    // scale
+    body.addClass(zoomedClass);
+    $(element).addClass(zoomableClass);
+    scaleAndTranslate(element);
+    setTimeout(function() {
+      $(element).addClass(zoomableZoomedClass);
+    }, 0);
+  };
+
+  var unzoom = function(element) {
+    body.removeClass(zoomedClass);
+    $(element)
+      .removeClass(zoomableZoomedClass)
+      .css('transform', 'scale(1) translate(0,0)');
+    setTimeout(function() {
+      $(element).removeClass(zoomableClass);
+    }, 200);
+  };
+
+  var scaleAndTranslate = function(element) {
+
     var wWindow = window.innerWidth,
       hWindow = window.innerHeight,
       sOrig = $(element)[0].offsetWidth,
       sZoomed = Math.min(wWindow, hWindow),
       scale = sZoomed / sOrig;
-    // translate
+
     var offset = $(element).offset(),
       mid = sOrig / 2,
       posXOrig = offset.left + mid,
@@ -83,26 +108,8 @@
       tY = posYZoomed - posYOrig,
       tXScaled = tX / scale,
       tYScaled = tY / scale;
-
-    body.addClass(zoomedClass);
-    $(element)
-      .addClass(zoomableClass)
-      .css('transform', 'scale(' + scale + ') translate(' + tXScaled + 'px,' + tYScaled + 'px)') // TO DO: fix this
-      ;
-    setTimeout(function() {
-      $(element).addClass(zoomableZoomedClass);
-    }, 0);
-  };
-
-  var unzoom = function(element) {
-    body.removeClass(zoomedClass);
-    $(element)
-      .removeClass(zoomableZoomedClass)
-      .css('transform', 'scale(1) translate(0,0)')
-      ;
-    setTimeout(function() {
-      $(element).removeClass(zoomableClass);
-    }, 200);
+      
+    $(element).css('transform', 'scale(' + scale + ') translate(' + tXScaled + 'px,' + tYScaled + 'px)');
   };
 
   // init
