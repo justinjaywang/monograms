@@ -77,8 +77,8 @@
 @font-size-rem-smaller:  unit(@size-smaller, rem);
 @font-size-rem-smallest: unit(@size-smallest, rem);
 // : font-size-applications
-@font-size--html:                  17px;
-@font-size--body:                  1em;
+@font-size--html: 17px;
+@font-size--body: 1em;
 // : font-family-variables
 @font-family-sans-serif: "Franklin Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:      Georgia, "Times New Roman", Times, serif;
@@ -118,9 +118,11 @@
 @postThumbnail-gutter: 6.25%;
 
 // spacing
-@padding-top--page-header:  3rem;
-@margin-right--title:       @size-rem-pico;
-@padding-bottom--year:      6rem;
-@margin-bottom--year-label: 1.5rem;
+@v:                           unit((unit(@font-size--body) * @line-height--body), rem);
+@padding-top--page-header:    @v * 2;
+@padding-bottom--page-header: @v * 3;
+@padding-bottom--year:        @v * 6;
+@margin-bottom--year-label:   @v * 1;
+@padding-right--title:        @size-rem-nano;
 
 

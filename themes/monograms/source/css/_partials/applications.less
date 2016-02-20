@@ -12,6 +12,7 @@ body {
 }
 html {
   font-size: @font-size--html;
+  .user-select(none);
 }
 body {
   position: relative;
@@ -59,14 +60,14 @@ p {
 // content
 .page-header {
   padding-top: @padding-top--page-header;
-  padding-bottom: @padding-top--page-header;
+  padding-bottom: @padding-bottom--page-header;
 }
 .page-header > * {
   display: inline;
 }
 .title {
   font-weight: @font-weight--title;
-  margin-right: @margin-right--title;
+  padding-right: @padding-right--title;
   cursor: pointer;
 }
 .author {
@@ -79,6 +80,7 @@ p {
 .year-label {
   font-weight: @font-weight--year-label;
   margin-bottom: @margin-bottom--year-label;
+  cursor: default;
   .opacity(@opacity--year-label);
 }
 .postThumbnails {
