@@ -27,13 +27,7 @@ body {
   .font-smoothing(antialiased);
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  color: @color-pos;
-  background-color: @color-neg;
-  &.n {
-    color: @color-neg;
-    background-color: @color-pos;
-  }
-  .transition(all @transition-duration ease);
+  // .transition(all @transition-duration ease);
 }
 .container {
   .margin-center();
@@ -68,7 +62,7 @@ p {
 }
 .title {
   font-weight: @font-weight--title;
-  cursor: crosshair;
+  cursor: pointer;
 }
 .author {
   font-weight: @font-weight--author;
@@ -92,9 +86,6 @@ p {
 .postThumbnail img {
   .img-responsive();
 }
-.postThumbnail-link:hover {
-  cursor: zoom-in;
-}
 .post {
   .fill();
   background-size: contain;
@@ -104,32 +95,77 @@ p {
 .post-link {
   .blockify();
 }
-.post-link {
-  cursor: zoom-out;
-}
 
-// transitions
-.post {
-  .transition(opacity @opacity-duration ease);
-}
-.isTransitioning .post {
-  .opacity(0);
-}
+// // transitions
+// .post {
+//   .transition(opacity @opacity-duration);
+// }
+// .is-transitioning .post {
+//   .opacity(0);
+// }
 
-// display
+// colors
+body {
+  color: @color-pos;
+  background-color: @color-neg;
+  &.is-inverted {
+    color: @color-neg;
+    background-color: @color-pos;
+  }
+}
+.zoomable:before {
+  background-color: @color-neg;
+}
 figure[class$="--p"] {
   display: block;
 }
 figure[class$="--n"] {
   display: none;
 }
-.n {
+.is-inverted {
   figure[class$="--n"] {
     display: block;
   }
   figure[class$="--p"] {
     display: none;
   }
+  .zoomable:before {
+    background-color: @color-pos;
+  }
+}
+
+// zoom
+.is-zoomable {
+  overflow: hidden;
+}
+.postThumbnail-link,
+.post-link {
+  cursor: zoom-in;
+}
+.postThumbnail-link {
+  .blockify();
+  position: relative;
+  .transition-transform(@transition-duration cubic-bezier(.2,0,.2,1));
+}
+.zoomable {
+  z-index: 1;
+}
+.zoomable:before {
+  content: '';
+  .blockify();
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  padding: 100vh 100vw;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  .transition-properties(visibility 0s linear @transition-duration, opacity @transition-duration 0s;); // applies when closing
+}
+.zoomable.is-zoomed:before {
+  visibility: visible;
+  opacity: 1;
+  .transition-properties(visibility 0s linear 0s, opacity @transition-duration 0s;); // applies when opening
 }
 
 // responsive grid

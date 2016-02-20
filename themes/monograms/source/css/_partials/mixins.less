@@ -84,12 +84,18 @@
 //        -o-transform: translate(@x, @y);
 //           transform: translate(@x, @y);
 // }
-// .transition-transform(@transition) {
-//   -webkit-transition: -webkit-transform @transition;
-//      -moz-transition: -moz-transform @transition;
-//        -o-transition: -o-transform @transition;
-//           transition: transform @transition;
-// }
+.transition-transform(@transition) {
+  -webkit-transition: -webkit-transform @transition;
+     -moz-transition: -moz-transform @transition;
+       -o-transition: -o-transform @transition;
+          transition: transform @transition;
+}
+.transition-properties(...) {
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+       -o-transition: @arguments;
+          transition: @arguments;
+}
 
 // user select
 .user-select(@select) {
