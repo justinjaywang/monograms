@@ -9,20 +9,13 @@
   'use strict';
 
   var body = $('body'),
-    postLink = $('#postLink'),
     postThumbnailLink = $('.postThumbnail-link'),
     title = $('.title'),
     invertedColorClass = 'is-inverted',
-    // transitioningClass = 'is-transitioning',
     zoomedClass = 'is-zoomable',
     zoomableClass = 'zoomable',
     zoomableZoomedClass = 'is-zoomed',
     zoomable = $('.' + zoomableClass);
-    // zoomedDataMode = 'zoomed',
-    // defaultDataMode = 'default';
-
-  // var arriveDelay = 0,
-  //   departDelay = 0;
 
   // colors
   // ------
@@ -57,64 +50,10 @@
     return '';
   };
 
-  // // transitions
-  // // -----------
-
-  // var initTransitions = function() {
-  //   body.addClass(transitioningClass);
-  //   $(window).on('load pageshow', function() {
-  //     setTimeout(function() {
-  //       body.removeClass(transitioningClass);
-  //     }, arriveDelay);
-  //   });
-  // };
-
-  // // navigation
-  // // ----------
-
-  // var initNavigation = function() {
-  //   // // navigate on postThumbnailLink
-  //   // postThumbnailLink.click(function(e) {
-  //   //   e.preventDefault();
-  //   //   var href = $(this).attr('href');
-  //   //   if (href) navigate(href);
-  //   //   return false;
-  //   // });
-  //   // navigate on postLink
-  //   postLink.click(function(e) {
-  //     e.preventDefault();
-  //     // var shouldGoBack = (history.length > 1) && (document.referrer.indexOf(window.location.origin) != -1);
-  //     // if (shouldGoBack) {
-  //     //   navigateBack();
-  //     // } else {
-  //       var href = $(this).attr('href');
-  //       if (href) navigate(href);
-  //     // }
-  //     return false;
-  //   });
-  // };
-
-  // var navigate = function(href) {
-  //   body.addClass(transitioningClass);
-  //   setTimeout(function() {
-  //     window.location.href = href;
-  //   }, departDelay);
-  // };
-
-  // // var navigateBack = function() {
-  // //   body.addClass(transitioningClass);
-  // //   setTimeout(function() {
-  // //     history.back();
-  // //   }, departDelay);
-  // // };
-
   // zoom
   // ----
 
   var initZoom = function() {
-    // postThumbnailLink.each(function() {
-    //   $(this).addClass(zoomableClass);
-    // });
     postThumbnailLink.click(function(e) {
       e.preventDefault();
       if (body.hasClass(zoomedClass)) {
@@ -127,10 +66,28 @@
   };
 
   var zoom = function(element) {
+    // scale
+    var wWindow = window.innerWidth,
+      hWindow = window.innerHeight,
+      sOrig = $(element)[0].offsetWidth,
+      sZoomed = Math.min(wWindow, hWindow),
+      scale = sZoomed / sOrig;
+    // translate
+    var offset = $(element).offset(),
+      mid = sOrig / 2,
+      posXOrig = offset.left + mid,
+      posYOrig = offset.top + mid,
+      posXZoomed = window.pageXOffset + (wWindow / 2),
+      posYZoomed = window.pageYOffset + (hWindow / 2),
+      tX = posXZoomed - posXOrig,
+      tY = posYZoomed - posYOrig,
+      tXScaled = tX / scale,
+      tYScaled = tY / scale;
+
     body.addClass(zoomedClass);
     $(element)
       .addClass(zoomableClass)
-      .css('transform', 'scale(3) translate(100px, 100px)') // TO DO: fix this
+      .css('transform', 'scale(' + scale + ') translate(' + tXScaled + 'px,' + tYScaled + 'px)') // TO DO: fix this
       ;
     setTimeout(function() {
       $(element).addClass(zoomableZoomedClass);
@@ -149,9 +106,9 @@
   };
 
   // init
+  // ----
+
   initColors();
-  // initTransitions();
-  // initNavigation();
   initZoom();
 
 }(jQuery);
