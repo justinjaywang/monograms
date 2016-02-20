@@ -12,19 +12,16 @@
 @color-pos:    #000;
 @color-neg:    #fff;
 @opacity-base: 11/12;
-@opacity-mult: 4/11; // 11/12 * 4/11 = 4/12
 
 // : applications
 @color--a: inherit;
 
 // transitions
-@transition-duration: 50ms;
+@transition-duration: 75ms;
 
 // opacity
 @opacity-duration:    100ms;
 @opacity--body:       @opacity-base;
-@opacity--author:     @opacity-mult;
-@opacity--year-label: @opacity-mult;
 
 // sizing
 @size-tera:         3;
@@ -90,7 +87,7 @@
 @font-weight-normal:    400;
 @font-weight-semilight: 300;
 // : font-weight-applications
-@font-weight--body:       @font-weight-bold;
+@font-weight--body:       @font-weight-normal;
 @font-weight--title:      inherit;
 @font-weight--author:     inherit;
 @font-weight--year-label: inherit;
@@ -124,5 +121,3 @@
 @padding-bottom--year:        @v * 6;
 @margin-bottom--year-label:   @v * 1;
 @padding-right--title:        @size-rem-nano;
-
-

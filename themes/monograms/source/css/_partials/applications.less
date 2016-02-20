@@ -13,6 +13,7 @@ body {
 html {
   font-size: @font-size--html;
   .user-select(none);
+  cursor: default;
 }
 body {
   position: relative;
@@ -67,11 +68,9 @@ p {
 }
 .title {
   font-weight: @font-weight--title;
-  padding-right: @padding-right--title;
-  cursor: pointer;
+  cursor: crosshair;
 }
 .author {
-  .opacity(@opacity--author);
   font-weight: @font-weight--author;
 }
 .year {
@@ -80,8 +79,6 @@ p {
 .year-label {
   font-weight: @font-weight--year-label;
   margin-bottom: @margin-bottom--year-label;
-  cursor: default;
-  .opacity(@opacity--year-label);
 }
 .postThumbnails {
   .clearfix();
@@ -94,7 +91,6 @@ p {
 }
 .postThumbnail img {
   .img-responsive();
-  // .opacity(@opacity--image);
 }
 .postThumbnail-link:hover {
   cursor: zoom-in;
