@@ -84,7 +84,7 @@
     body.removeClass(zoomedClass);
     $(element)
       .removeClass(zoomableZoomedClass)
-      .css('transform', 'scale(1) translate(0,0)');
+      .removeAttr('style');
     setTimeout(function() {
       $(element).removeClass(zoomableClass);
     }, 200);
